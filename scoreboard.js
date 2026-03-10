@@ -108,20 +108,7 @@ rows[winner-1].classList.add("winner");
 
 }
 
-function submitRound(){
 
-if(currentRound < 3){
-currentRound++;
-updateRoundDisplay();
-}
-
-}
-
-function updateRoundDisplay(){
-if(roundDisplay){
-roundDisplay.innerText = "Round " + currentRound + " / 3";
-}
-}
 
 function resetGame(){
 
