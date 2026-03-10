@@ -4,7 +4,11 @@ const scoreBody = document.getElementById("scoreBody");
 const roundDisplay = document.getElementById("roundDisplay");
 
 let currentRound = 1;
-
+let timerInterval = null;
+let timeLeft = 60;
+let isRunning = false;
+let isPaused = false;
+setRecommendedTime();
 buildTable();
 updateRoundDisplay();
 
@@ -129,6 +133,141 @@ updateRoundDisplay();
 
 }
 
+function setRecommendedTime(){
+
+let players = parseInt(localStorage.getItem("players")) || 4;
+
+let recommended = 60;
+
+if(players >= 4 && players <= 7){
+recommended = 60;
+}
+else if(players <= 9){
+recommended = 50;
+}
+else if(players <= 11){
+recommended = 40;
+}
+else if(players <= 13){
+recommended = 35;
+}
+else if(players <= 16){
+recommended = 30;
+}
+
+let recommendedTime = document.getElementById("timerInput").value = recommended;
+
+let recommendedText = document.getElementById("recommendedTime")
+
+recommendedText.innerHTML = "Recommended time: " + recommended + " seconds";
+
+}
+
+function startTimer(){
+
+clearInterval(timerInterval);
+
+timeLeft = parseFloat(document.getElementById("timerInput").value) || 60;
+
+updateTimerDisplay();
+
+timerInterval = setInterval(()=>{
+
+if(!isPaused){
+
+timeLeft -= 0.01;
+
+if(timeLeft <= 0){
+
+timeLeft = 0;
+updateTimerDisplay();
+
+clearInterval(timerInterval);
+
+playBeep();
+
+document.getElementById("timerToggleBtn").innerText = "Start";
+
+isRunning = false;
+
+alert("Time's up!");
+
+return;
+
+}
+
+updateTimerDisplay();
+
+}
+
+},10);
+
+}
+
+function updateTimerDisplay(){
+
+let display = document.getElementById("timerDisplay");
+
+display.innerText = timeLeft.toFixed(2);
+
+if(timeLeft <= 10){
+display.classList.add("timerWarning");
+}
+else{
+display.classList.remove("timerWarning");
+}
+
+}
+
+function toggleTimer(){
+
+const btn = document.getElementById("timerToggleBtn");
+
+if(!isRunning){
+
+startTimer();
+btn.innerText = "Pause";
+isRunning = true;
+
+}
+else if(!isPaused){
+
+isPaused = true;
+btn.innerText = "Resume";
+
+}
+else{
+
+isPaused = false;
+btn.innerText = "Pause";
+
+}
+
+}
+
+
+function pauseTimer(){
+
+isPaused = !isPaused;
+
+}
+
+function resetTimer(){
+
+clearInterval(timerInterval);
+
+timeLeft = parseFloat(document.getElementById("timerInput").value) || 60;
+
+isRunning = false;
+isPaused = false;
+
+document.getElementById("timerToggleBtn").innerText = "Start";
+
+updateTimerDisplay();
+
+}
+
+
 function newGame(){
 
 localStorage.clear();
@@ -142,3 +281,6 @@ function goBack(){
 window.location.href = "players.html";
 
 }
+
+
+updateTimerDisplay();

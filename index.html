@@ -24,7 +24,7 @@
 
 <br>
 
-<select id="playerCount">
+<select id="playerCount" onchange="updateCardInfo()">
 
 <option value="4">4</option>
 <option value="5">5</option>
@@ -54,8 +54,12 @@
 <option value="3">3</option>
 
 </select>
-
 <br><br>
+<p id="cardInfo">
+</p>
+
+
+<br>
 
 <button onclick="saveSettings()">Next</button>
 

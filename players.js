@@ -3,6 +3,8 @@ let teamCount = Number(localStorage.getItem("teams"));
 
 let container = document.getElementById("teamsContainer");
 
+
+
 let draggedPlayer = null;
 
 createTeams();
@@ -126,6 +128,7 @@ let inputs = document.querySelectorAll(".player input");
 inputs.forEach((input,i)=>{
 input.value = names[i];
 });
+
 
 }
 

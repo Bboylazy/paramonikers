@@ -28,7 +28,41 @@
 
 </table>
 
-<br>
+<div class="timerContainer">
+
+<h2 id="roundDisplay"></h2>
+
+<div class="timerDisplay" id="timerDisplay">
+60 s
+</div>
+
+<div class="timerSetup">
+<label>Seconds</label>
+
+<input
+type="number"
+id="timerInput"
+value="60"
+min="5"
+max="300"
+/>
+</div>
+
+<p id="recommendedTime"></p>
+
+<div class="timerButtons">
+
+<button id="timerToggleBtn" onclick="toggleTimer()">
+Start
+</button>
+
+<button onclick="resetTimer()">
+Reset
+</button>
+
+</div>
+
+</div>
 
 <div class="gameControls">
 <button onclick="goBack()">Back</button>
