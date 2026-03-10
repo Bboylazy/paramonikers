@@ -2,21 +2,22 @@
 <html>
 
 <head>
-<title>Players</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Setup</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="logo">
-<img src="Bridge.png">
-</div>
+<h1>Team Setup</h1>
 
-<h1>Enter Player Names</h1>
+<button onclick="randomizeTeams()">🎲 Randomize Teams</button>
 
-<div id="playerFields"></div>
+<div id="teamsContainer"></div>
 
-<button onclick="savePlayers()">Next</button>
+<br>
+
+<button onclick="startGame()">Start Game</button>
 
 <script src="players.js"></script>
 

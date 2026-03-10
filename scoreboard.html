@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scoreboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Scoreboard</h1>
+
+<h2 id="roundTitle">Round 1</h2>
+
+<div class="teams">
+
+<div class="team">
+
+<h3>Team 1</h3>
+
+<input type="number" id="team1Score" placeholder="Enter score">
+
+<p>Total: <span id="team1Total">0</span></p>
+
+</div>
+
+<div class="team">
+
+<h3>Team 2</h3>
+
+<input type="number" id="team2Score" placeholder="Enter score">
+
+<p>Total: <span id="team2Total">0</span></p>
+
+</div>
+
+</div>
+
+<button onclick="submitRound()">Submit Round</button>
+
+<br><br>
+
+<button onclick="resetGame()">Reset Game</button>
+
+<script src="scoreboard.js"></script>
+
+</body>
+</html>

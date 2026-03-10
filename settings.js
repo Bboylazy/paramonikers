@@ -17,9 +17,12 @@ teams.value = 3
 
 function saveSettings(){
 
-localStorage.setItem("playerCount", players.value)
-localStorage.setItem("teamCount", teams.value)
+let players = document.getElementById("playerCount").value;
+let teams = document.getElementById("teamCount").value;
 
-window.location.href = "players.html"
+localStorage.setItem("players", players);
+localStorage.setItem("teams", teams);
+
+window.location.href = "players.html";
 
 }
