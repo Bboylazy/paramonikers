@@ -1,0 +1,28 @@
+body{
+font-family:Arial;
+text-align:center;
+background:#f4f4f4;
+padding:20px;
+}
+
+input{
+padding:10px;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+margin:10px;
+background:#2b7cff;
+color:white;
+border:none;
+border-radius:5px;
+}
+
+.team{
+background:white;
+margin:20px auto;
+padding:20px;
+width:300px;
+border-radius:10px;
+}
