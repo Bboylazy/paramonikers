@@ -10,32 +10,40 @@ updateRoundDisplay();
 
 function buildTable(){
 
-for(let i=1;i<=teams;i++){
+const teamsData = JSON.parse(localStorage.getItem("teamsData")) || [];
+
+for(let i=0;i<teams;i++){
+
+let teamName = "Team " + (i+1);
+
+if(teamsData[i] && teamsData[i].length > 0){
+teamName = "Team <br>" + teamsData[i][0];
+}
 
 let row = document.createElement("tr");
 
 row.innerHTML = `
-<td>Team ${i}</td>
+<td>${teamName}</td>
 
 <td>
 <input type="number" class="scoreInput"
-data-team="${i}" data-round="1"
+data-team="${i+1}" data-round="1"
 oninput="updateScores()">
 </td>
 
 <td>
 <input type="number" class="scoreInput"
-data-team="${i}" data-round="2"
+data-team="${i+1}" data-round="2"
 oninput="updateScores()">
 </td>
 
 <td>
 <input type="number" class="scoreInput"
-data-team="${i}" data-round="3"
+data-team="${i+1}" data-round="3"
 oninput="updateScores()">
 </td>
 
-<td class="total" id="total${i}">0</td>
+<td class="total" id="total${i+1}">0</td>
 `;
 
 scoreBody.appendChild(row);
