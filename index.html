@@ -2,30 +2,54 @@
 <html>
 
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game Score Tracker</title>
+<title>Game Setup</title>
 <link rel="stylesheet" href="style.css">
+<img src="Bridge.png">
 </head>
 
 <body>
 
-<h1>🎮 Game Score Tracker</h1>
+    <!--
+<div class="logo">
+<img src="Bridge.png"> 
+</div>
+-->
+<h1>Game Setup</h1>
 
-<label>Players (comma separated)</label>
-<br>
-<input id="players" placeholder="Alex, Sam, Jordan">
-<br>
+<label>Number of Players</label>
+
+<select id="playerCount">
+
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+
+</select>
+
+<br><br>
 
 <label>Number of Teams</label>
-<br>
-<input id="teamCount" type="number" value="2">
-<br>
 
-<button onclick="generateTeams()">Generate Teams</button>
+<select id="teamCount">
+<option value="2">2</option>
+<option value="3">3</option>
+</select>
 
-<div id="teamsContainer"></div>
+<br><br>
 
-<script src="app.js"></script>
+<button onclick="saveSettings()">Next</button>
+
+<script src="settings.js"></script>
 
 </body>
 </html>
