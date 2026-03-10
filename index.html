@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Score Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>🎮 Game Score Tracker</h1>
+
+<label>Players (comma separated)</label>
+<br>
+<input id="players" placeholder="Alex, Sam, Jordan">
+<br>
+
+<label>Number of Teams</label>
+<br>
+<input id="teamCount" type="number" value="2">
+<br>
+
+<button onclick="generateTeams()">Generate Teams</button>
+
+<div id="teamsContainer"></div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
