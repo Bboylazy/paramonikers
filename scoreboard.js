@@ -1,47 +1,149 @@
-let round = 1;
+const teams = parseInt(localStorage.getItem("teams")) || 2;
 
-let team1Total = 0;
-let team2Total = 0;
+const scoreBody = document.getElementById("scoreBody");
+const roundDisplay = document.getElementById("roundDisplay");
 
-function submitRound(){
+let currentRound = 1;
 
-let t1 = Number(document.getElementById("team1Score").value);
-let t2 = Number(document.getElementById("team2Score").value);
+buildTable();
+updateRoundDisplay();
 
-team1Total += t1;
-team2Total += t2;
+function buildTable(){
 
-document.getElementById("team1Total").innerText = team1Total;
-document.getElementById("team2Total").innerText = team2Total;
+for(let i=1;i<=teams;i++){
 
-document.getElementById("team1Score").value = "";
-document.getElementById("team2Score").value = "";
+let row = document.createElement("tr");
 
-round++;
+row.innerHTML = `
+<td>Team ${i}</td>
 
-if(round <= 3){
+<td>
+<input type="number" class="scoreInput"
+data-team="${i}" data-round="1"
+oninput="updateScores()">
+</td>
 
-document.getElementById("roundTitle").innerText = "Round " + round;
+<td>
+<input type="number" class="scoreInput"
+data-team="${i}" data-round="2"
+oninput="updateScores()">
+</td>
 
-}else{
+<td>
+<input type="number" class="scoreInput"
+data-team="${i}" data-round="3"
+oninput="updateScores()">
+</td>
 
-let winner = team1Total > team2Total ? "Team 1 Wins!" : "Team 2 Wins!";
+<td class="total" id="total${i}">0</td>
+`;
 
-alert(winner);
+scoreBody.appendChild(row);
 
 }
 
+}
+
+function updateScores(){
+
+for(let i=1;i<=teams;i++){
+
+let total = 0;
+
+for(let r=1;r<=3;r++){
+
+let input = document.querySelector(
+`input[data-team="${i}"][data-round="${r}"]`
+);
+
+let value = parseInt(input.value) || 0;
+
+total += value;
+
+}
+
+document.getElementById("total"+i).innerText = total;
+
+}
+
+highlightWinner();
+
+}
+
+function highlightWinner(){
+
+let highest = -Infinity;
+let winner = null;
+
+for(let i=1;i<=teams;i++){
+
+let score = parseInt(
+document.getElementById("total"+i).innerText
+);
+
+if(score > highest){
+
+highest = score;
+winner = i;
+
+}
+
+}
+
+let rows = document.querySelectorAll("#scoreBody tr");
+
+rows.forEach(r => r.classList.remove("winner"));
+
+if(winner){
+rows[winner-1].classList.add("winner");
+}
+
+}
+
+function submitRound(){
+
+if(currentRound < 3){
+currentRound++;
+updateRoundDisplay();
+}
+
+}
+
+function updateRoundDisplay(){
+if(roundDisplay){
+roundDisplay.innerText = "Round " + currentRound + " / 3";
+}
 }
 
 function resetGame(){
 
-round = 1;
-team1Total = 0;
-team2Total = 0;
+document.querySelectorAll(".scoreInput").forEach(input=>{
+input.value = "";
+});
 
-document.getElementById("team1Total").innerText = 0;
-document.getElementById("team2Total").innerText = 0;
+document.querySelectorAll(".total").forEach(total=>{
+total.innerText = "0";
+});
 
-document.getElementById("roundTitle").innerText = "Round 1";
+document.querySelectorAll("#scoreBody tr").forEach(row=>{
+row.classList.remove("winner");
+});
+
+currentRound = 1;
+updateRoundDisplay();
+
+}
+
+function newGame(){
+
+localStorage.clear();
+
+window.location.href = "index.html";
+
+}
+
+function goBack(){
+
+window.location.href = "players.html";
 
 }

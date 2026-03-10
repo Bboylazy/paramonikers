@@ -2,19 +2,27 @@
 <html>
 
 <head>
-<title>Game Setup</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Paramonikers - Game Setup</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-<div class="card">
+
 <div class="logo">
-<img src="transparentLogo.png">
+<img src="transparentLogo.png" alt="Paramonikers Logo">
 </div>
 
 <h1>Game Setup</h1>
 
-<label>Number of Players</label>
+<label for="playerCount">Number of Players</label>
+
+<br>
 
 <select id="playerCount">
 
@@ -36,11 +44,15 @@
 
 <br><br>
 
-<label>Number of Teams</label>
+<label for="teamCount">Number of Teams</label>
+
+<br>
 
 <select id="teamCount">
+
 <option value="2">2</option>
 <option value="3">3</option>
+
 </select>
 
 <br><br>
@@ -48,6 +60,7 @@
 <button onclick="saveSettings()">Next</button>
 
 <script src="settings.js"></script>
-</div>
+
 </body>
+
 </html>

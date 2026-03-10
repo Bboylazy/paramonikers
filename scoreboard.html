@@ -10,38 +10,35 @@
 <body>
 
 <h1>Scoreboard</h1>
+<h2 id="roundDisplay"></h2>
+<table id="scoreTable">
 
-<h2 id="roundTitle">Round 1</h2>
+<thead>
+<tr>
+<th>Team</th>
+<th>Round 1</th>
+<th>Round 2</th>
+<th>Round 3</th>
+<th>Total</th>
+</tr>
+</thead>
 
-<div class="teams">
+<tbody id="scoreBody">
+</tbody>
 
-<div class="team">
+</table>
 
-<h3>Team 1</h3>
+<br>
 
-<input type="number" id="team1Score" placeholder="Enter score">
-
-<p>Total: <span id="team1Total">0</span></p>
-
-</div>
-
-<div class="team">
-
-<h3>Team 2</h3>
-
-<input type="number" id="team2Score" placeholder="Enter score">
-
-<p>Total: <span id="team2Total">0</span></p>
-
-</div>
-
-</div>
-
+<div class="centerButton">
 <button onclick="submitRound()">Submit Round</button>
+</div>
 
-<br><br>
-
+<div class="gameControls">
+<button onclick="goBack()">Back</button>
 <button onclick="resetGame()">Reset Game</button>
+<button onclick="newGame()">New Game</button>
+</div>
 
 <script src="scoreboard.js"></script>
 

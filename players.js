@@ -129,6 +129,10 @@ input.value = names[i];
 
 }
 
+function goBack(){
+window.location.href = "index.html";
+}
+
 function startGame(){
 
 let teams = [];

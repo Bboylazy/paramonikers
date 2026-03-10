@@ -3,7 +3,7 @@
 body{
 font-family: Arial, Helvetica, sans-serif;
 text-align: center;
-background: #121212;
+background: #262730;
 color: white;
 margin: 0;
 padding: 20px;
@@ -37,8 +37,57 @@ transform: scale(0.95);
 
 .logo img{
 width:180px;
-margin-bottom:20px;
+margin-bottom:-80px;
 }
+
+.buttons{
+    width:100%
+}
+
+/* ---------- Navigation ---------- */
+.navigation{
+
+}
+
+.centerButton{
+display:flex;
+justify-content:center;
+margin-top:20px;
+}
+
+.navButtons{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:20px;
+}
+
+.gameControls{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+margin-top:25px;
+}
+
+.gameControls button{
+width:162px;
+text-align:center;
+}
+
+/* ---------- Settings Page ---------- */
+#playerCount{
+    width:5vh;
+    height:3vh;
+    text-align: center;
+}
+
+#teamCount{
+    width:5vh;
+    height:3vh;
+    text-align: center;
+}
+
 
 /* ---------- TEAM SETUP PAGE ---------- */
 
@@ -89,6 +138,10 @@ font-size:16px;
 }
 
 /* ---------- SCOREBOARD ---------- */
+.winner{
+background:#2e7d32;
+font-weight:bold;
+}
 
 .team{
 background:#1e1e1e;
@@ -143,4 +196,51 @@ input[type="number"]{
 font-size:20px;
 }
 
+}
+
+table{
+width:100%;
+max-width:600px;
+margin:auto;
+border-collapse:collapse;
+}
+
+th, td{
+border:1px solid #444;
+padding:12px;
+text-align:center;
+}
+
+.scoreInput{
+width:55px;
+height:38px;
+font-size:18px;
+text-align:center;
+border-radius:6px;
+border:none;
+}
+
+#scoreTable{
+width:100%;
+max-width:650px;
+margin:auto;
+border-collapse:collapse;
+}
+
+#scoreTable th,
+#scoreTable td{
+padding:12px;
+text-align:center;
+border:1px solid #444;
+}
+
+#scoreTable th:first-child,
+#scoreTable td:first-child{
+width:100px;
+}
+
+#scoreTable th:last-child,
+#scoreTable td:last-child{
+width:70px;
+font-weight:bold;
 }
